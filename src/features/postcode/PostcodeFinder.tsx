@@ -1,8 +1,16 @@
 import { useState } from "react";
 import PostcodeLookupComponent from "./components/PostcodeLookupComponent";
 
+export type Address = {
+  line_1: string;
+  line_2: string;
+  line_3: string;
+  post_town: string;
+  postcode: string;
+};
+
 const PostcodeFinder = () => {
-  const [address, setAddress] = useState({
+  const [address, setAddress] = useState<Address>({
     line_1: "",
     line_2: "",
     line_3: "",
@@ -11,9 +19,9 @@ const PostcodeFinder = () => {
   });
 
   return (
-    <div className="App">
+    <>
       <PostcodeLookupComponent
-        onAddressSelected={(address) => setAddress(address)}
+        onAddressSelected={(address: Address) => setAddress(address)}
       />
 
       <label>Address Line One</label>
@@ -46,7 +54,7 @@ const PostcodeFinder = () => {
         value={address.postcode}
         onChange={(e) => setAddress({ ...address, postcode: e.target.value })}
       />
-    </div>
+    </>
   );
 };
 export default PostcodeFinder;

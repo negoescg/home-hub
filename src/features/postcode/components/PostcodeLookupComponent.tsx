@@ -1,8 +1,8 @@
 import { PostcodeLookup } from "@ideal-postcodes/postcode-lookup";
 import { createRef, useEffect } from "react";
 
-const PostcodeLookupComponent = (props) => {
-  const context = createRef();
+const PostcodeLookupComponent = (props: any) => {
+  const context = createRef<any>();
 
   useEffect(() => {
     PostcodeLookup.setup({
@@ -14,6 +14,7 @@ const PostcodeLookupComponent = (props) => {
       },
       ...props,
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return <div ref={context}></div>;
