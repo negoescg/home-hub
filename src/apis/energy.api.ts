@@ -3,7 +3,7 @@ import { baseEnergyQuery } from './baseEnergyQuery.api';
 
 export const energyApi = createApi({
   baseQuery: baseEnergyQuery,
-  reducerPath: 'scaleApi',
+  reducerPath: 'energyApi',
   endpoints: (builder) => ({
     getEnergyInfo: builder.query<any, string>({
       query: (payload) => ({
